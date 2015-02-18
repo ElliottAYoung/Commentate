@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string     :video_name
       t.string     :video_url
       t.text       :description
-      t.integer    :rating
+      t.integer    :likes
       t.belongs_to :user
 
       t.timestamps
