@@ -1,7 +1,3 @@
-before '/videos/delete/:id' do
-  redirect '/home' unless (Favorite.user_id = params[:id])
-end
-
 get '/home' do #RESTfully /videos
   @videos = Video.all
   erb :index
@@ -42,7 +38,7 @@ end
 
 delete '/videos/delete/:id' do
   video = Video.find(params[:id])
-  video.delete
+  video.destroy
 
   redirect '/home'
 end
