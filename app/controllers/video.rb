@@ -1,6 +1,6 @@
-# before '/videos/delete/:id' do
-#   # redirect '/home' unless 
-# end
+before '/videos/delete/:id' do
+  redirect '/home' unless (Favorite.user_id = params[:id])
+end
 
 get '/home' do #RESTfully /videos
   @videos = Video.all
