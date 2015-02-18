@@ -24,9 +24,16 @@ post '/videos' do
                      description: params[:description],
                      rating: 0,
                      user_id: 1)
-  p @video
 
   if @video.save
+
+    params[:tags].split(",").map(&:strip).each do |tag|
+      the_tag = Tag.find_by(name: tag)
+      the_tag = Tag.create(name: tag) unless the_tag
+
+      @video.tags << the_tag
+    end
+    
     redirect '/home'
   else
     erb :"/videos/new"
