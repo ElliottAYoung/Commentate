@@ -11,7 +11,7 @@ get '/videos/new' do
   erb :"videos/new"
 end
 
-get '/video/:id' do
+get '/videos/:id' do
   @video = Video.find(params[:id])
 
   erb :"videos/show"
