@@ -5,6 +5,11 @@
   <iframe width="560" height="315" src="<%=@video.video_url%>" frameborder="0" allowfullscreen></iframe>
   <br>
   <div id="video-stats">
+    <%if current_user%>
+      <form action="/users/<%=current_user.id%>/videos/<%=@video.id%>" method='POST'>
+        <div id="favorite_button"><input type="submit" value="Favorite This Video!"</div>
+      </form>
+    <%end%>
     <h4>Views: 0</h4>
     <h4>Rating: <%=@video.rating%></h4>
     <h4>Description: <%=@video.description%></h4>
