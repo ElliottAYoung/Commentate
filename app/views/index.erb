@@ -2,6 +2,6 @@
   <div id="title"><h1>Commentate</h1></div>
   <div id="subtitle"><h3>No Permanent Comments, the Problem of Bad Comments is a Thing of the Past.</h3></div>
   <%@videos.each do |video|%>
-    <a href="/videos/<%=video.id%>"<%=video.video_name%></a>
+    <p><a href="/videos/<%=video.id%>"><%=video.video_name%></a></p>
   <%end%>
 </div>
