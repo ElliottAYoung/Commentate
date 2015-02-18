@@ -3,4 +3,11 @@
   <h2><%=@video.video_name%></h2>
   <br>
   <iframe width="560" height="315" src="<%=@video.video_url%>" frameborder="0" allowfullscreen></iframe>
+  <br>
+  <div id="video-stats">
+    <h4>Views: 0</h4>
+    <h4>Rating: <%=@video.rating%></h4>
+    <h4>Description: <%=@video.description%></h4>
+    <br><h4>Tags:</h4> 
+  </div>
 </div>
