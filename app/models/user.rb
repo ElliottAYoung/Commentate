@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   include BCrypt
 
   has_many :videos
+  has_many :favorites
 
   validates :user_name, uniqueness: true
 
