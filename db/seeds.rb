@@ -1,7 +1,7 @@
-include 'faker'
-include 'bcrypt'
+require 'faker'
+require 'bcrypt'
 
-user = []
+users = []
 
 10.times do
   users << User.create!(user_name: Faker::Internet.user_name, password_hash: BCrypt::Password.create("password"), profile_picture: Faker::Avatar.image)
