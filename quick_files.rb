@@ -1,4 +1,4 @@
-files = ["user"]
+files = ["video", "tag"]
 
 files.each do |file|
   plural = "create_#{file}s"

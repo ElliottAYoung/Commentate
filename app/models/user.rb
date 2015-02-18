@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   include BCrypt
 
+  has_many :videos
+
   validates :user_name, uniqueness: true
 
   def password
