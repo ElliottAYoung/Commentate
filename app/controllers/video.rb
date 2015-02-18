@@ -18,10 +18,9 @@ get '/videos/:id' do
 end
 
 post '/videos' do
-  puts "In Post"
-  p params
+  embed_url = convert_url(params[:video_url])
   @video = Video.new(video_name: params[:video_name],
-                     video_url: params[:video_url],
+                     video_url: embed_url,
                      description: params[:description],
                      rating: 0,
                      user_id: 1)
