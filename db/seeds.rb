@@ -10,8 +10,8 @@ end
 videos = []
 
 users.each do |user|
-  videos << Video.create!(video_name: Faker::Company.catch_phrase, video_url: "https://www.youtube.com/embed/5HRgfxDtaPI", description: Faker::Lorem.paragraph, rating: 5, user_id: user.id) 
-  videos << Video.create!(video_name: Faker::Company.catch_phrase, video_url: "https://www.youtube.com/embed/5HRgfxDtaPI", description: Faker::Lorem.paragraph, rating: 5, user_id: user.id) 
+  videos << Video.create!(video_name: Faker::Company.catch_phrase, video_url: "https://www.youtube.com/embed/5HRgfxDtaPI", description: Faker::Lorem.paragraph, likes: 42, user_id: user.id) 
+  videos << Video.create!(video_name: Faker::Company.catch_phrase, video_url: "https://www.youtube.com/embed/5HRgfxDtaPI", description: Faker::Lorem.paragraph, likes: 42, user_id: user.id) 
 end
 
 tags = []
