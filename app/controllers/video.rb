@@ -18,7 +18,14 @@ get '/videos/:id' do
 end
 
 post '/videos' do
-  @video = Video.new(params[:video])
+  puts "In Post"
+  p params
+  @video = Video.new(video_name: params[:video_name],
+                     video_url: params[:video_url],
+                     description: params[:description],
+                     rating: 0,
+                     user_id: 1)
+  p @video
 
   if @video.save
     redirect '/home'
