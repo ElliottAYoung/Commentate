@@ -1,3 +1,10 @@
 <div class="container">
-  <p><%= current_user.user_name %></p>
+  <h1><p><%= current_user.user_name %></p></h1>
+  <p><img id="profile_picture" src="<%= current_user.profile_picture %>"/></p>
+  <h2>Favorited Videos</h2>
+  <ul>
+  <%@favorites.each do |favorite|%>
+    <li><a href="/videos/<%=favorite.video.id%>"><%=favorite.video.video_name%></a>
+  <%end%>
+  </ul>
 </div>

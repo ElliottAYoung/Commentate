@@ -16,7 +16,8 @@ end
  
 # show one user by id (read)
 get "/users/:id" do
-  @user = current_user
+  @user = User.find(params[:id])
+  @favorites = @user.favorites
  
   erb :"users/show"
 end
