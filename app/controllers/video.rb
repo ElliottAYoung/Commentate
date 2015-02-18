@@ -23,7 +23,7 @@ post '/videos' do
                      video_url: embed_url,
                      description: params[:description],
                      rating: 0,
-                     user_id: current_user.id)
+                     user_id: 1)
   p @video
 
   if @video.save
