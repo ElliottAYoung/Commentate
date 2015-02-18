@@ -1,6 +1,6 @@
-get 'user/:id/favorites' do
+get '/user/:id/favorites' do
   @user = User.find(params[:id])
-  @favorites = Favorite.where(@user.id = :user_id)
+  @favorites = @user.favorites
 
   erb :"favorites/show"
 end
