@@ -34,7 +34,7 @@ a{
 th {
   text-align: left;
 }
-.auth_button{
+.top_button{
   text-align: center;
   padding: 7px;
   margin-top: 5px;
@@ -44,6 +44,6 @@ th {
   border-radius: 12px;
   display: inline-block;
 }
-.auth_button, a{
+.top_button, a{
   color: black;
 }
