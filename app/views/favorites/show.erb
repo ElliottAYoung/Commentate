@@ -1,9 +1,0 @@
-<div class="container">
-  <h1><%=@user.user_name%>'s Favorited Videos</h1>
-  <br>
-  <ul>
-  <%@favorites.each do |favorite|%>
-    <li><a href="/videos/<%=favorite.video.id%>"><%=favorite.video.video_name%></a>
-  <%end%>
-  </ul>
-</div>

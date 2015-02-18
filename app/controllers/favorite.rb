@@ -1,10 +1,3 @@
-get '/users/:id/favorites' do
-  @user = User.find(params[:id])
-  @favorites = @user.favorites
-
-  erb :"favorites/show"
-end
-
 post '/users/:user_id/videos/:id' do
   redirect '/home' unless current_user
 
