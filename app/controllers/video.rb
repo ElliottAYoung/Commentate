@@ -13,6 +13,14 @@ get '/videos/:id' do
   erb :"videos/show"
 end
 
+get '/videos/:id/like' do
+  video = Video.find(params[:id])
+  video.likes.create(value: 1)
+
+  content_type :json
+  {like_count: video.likes.count}.to_json
+end
+
 post '/videos' do
   embed_url = convert_url(params[:video_url])
   @video = Video.new(video_name: params[:video_name],

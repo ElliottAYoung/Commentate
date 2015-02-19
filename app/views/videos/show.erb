@@ -1,23 +1,24 @@
-<div class="container">
+<div class="video_container">
   <br>
-  <h2><%=@video.video_name%></h2>
+  <h2 id="vid_name"><%=@video.video_name%></h2>
+  <iframe id="video" width="559" height="315" src="<%=@video.video_url%>" frameborder="0" allowfullscreen></iframe>
   <br>
-  <iframe width="560" height="315" src="<%=@video.video_url%>" frameborder="0" allowfullscreen></iframe>
-  <br>
+  <div class="chatbox"></div><br>
   <div id="video-stats">
     <%if current_user%>
       <form action="/users/<%=current_user.id%>/videos/<%=@video.id%>" method='POST'>
         <div id="favorite_button"><input type="submit" value="Favorite This Video!"</div>
       </form>
     <%end%>
-    <h4>Views: 0</h4>
-    <h4 id="vid_rating">Rating: <%=@video.rating%></h4>
-    <h4 id="vid_desc">Description: <%=@video.description%></h4>
-    <h4 id="vid_tags">Tags: 
+    <p>Views: 0</p>
+    <a href='/videos/<%= @video.id %>/like' class="fa fa-sort-desc vote-button"></a>
+    <p id="vid_likes">Likes: <%=@video.likes%></p>
+    <p id="vid_desc">Description: <%=@video.description%></p>
+    <p id="vid_tags">Tags: 
       <%@video.tags.each do |tag|%>
         <%=tag.name%>
       <%end%>
-    </h4>
+    </p>
   </div>
   <%if current_user && is_owner?(current_user, @video)%>
     <form action="/videos/delete/<%=@video.id%>" method="POST">
