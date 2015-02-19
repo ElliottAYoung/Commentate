@@ -3,7 +3,26 @@
   <h2 id="vid_name"><%=@video.video_name%></h2>
   <iframe id="video" width="559" height="315" src="<%=@video.video_url%>" frameborder="0" allowfullscreen></iframe>
   <br>
-  <div class="chatbox"></div><br>
+  <div class="chatbox">
+    <div id="messages">
+    </div>
+    <div id="chat_form">
+      <form>
+        <input id="chat" type="text">
+        <input type="submit" value="chat">
+      </form>
+      <script>
+        var exampleSocket = new WebSocket("ws://127.0.0.1:8080");
+        exampleSocket.onmessage = function (event) {
+          $(".container").append("<p>"+event.data+"</p>");
+        }
+        $("form").on("submit",function(event){
+          event.preventDefault();
+          exampleSocket.send($("#chat").val())
+        })
+      </script>
+    </div>
+  </div><br>
   <div id="video-stats">
     <%if current_user%>
       <form action="/users/<%=current_user.id%>/videos/<%=@video.id%>" method='POST'>
